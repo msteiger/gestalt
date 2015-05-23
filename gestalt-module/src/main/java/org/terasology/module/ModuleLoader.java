@@ -17,7 +17,6 @@
 package org.terasology.module;
 
 import com.google.common.base.Charsets;
-import com.google.common.base.Preconditions;
 import com.google.gson.JsonParseException;
 
 import java.io.IOException;
@@ -85,7 +84,6 @@ public class ModuleLoader {
      * @throws IOException If an error occurs loading the module
      */
     public Module load(Path modulePath) throws IOException {
-        Preconditions.checkArgument(Files.exists(modulePath), "Module does not exist at: " + modulePath);
         if (Files.isDirectory(modulePath)) {
             return loadDirectoryModule(modulePath);
         } else if (Files.isRegularFile(modulePath)) {
